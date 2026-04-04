@@ -1,6 +1,8 @@
 ﻿/** @type {import('next').NextConfig} */
 const nextConfig = {
-  turbo: false,
+  experimental: {
+    serverComponentsExternalPackages: ['bcryptjs', 'pg'],
+  },
 };
 
 module.exports = nextConfig;
