@@ -26,19 +26,14 @@ export async function POST(req) {
     const body = await req.json();
     const { id, content } = body;
 
-    // 🔥 FIX: ensure JSON format
-    const jsonContent = typeof content === "string"
-      ? { text: content }
-      : content;
-
     await pool.query(
       `
       INSERT INTO documents (id, content)
-      VALUES ($1, $2::jsonb)
+      VALUES ($1, $2)
       ON CONFLICT (id)
-      DO UPDATE SET content = $2::jsonb, updated_at = CURRENT_TIMESTAMP
+      DO UPDATE SET content = $2, updated_at = CURRENT_TIMESTAMP
       `,
-      [id, JSON.stringify(jsonContent)]
+      [id, content]
     );
 
     return Response.json({ success: true });
