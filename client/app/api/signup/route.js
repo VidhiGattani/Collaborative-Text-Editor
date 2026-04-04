@@ -1,0 +1,23 @@
+import { pool } from "@/lib/db";
+import bcrypt from "bcrypt";
+
+export async function POST(req) {
+  const { email, password } = await req.json();
+
+  const hashedPassword = await bcrypt.hash(password, 10);
+
+  try {
+    await pool.query(
+      "INSERT INTO users (email, password) VALUES ($1, $2)",
+      [email, hashedPassword]
+    );
+
+    return new Response(JSON.stringify({ message: "User created" }), {
+      status: 200,
+    });
+  } catch (err) {
+    return new Response(JSON.stringify({ error: "User already exists" }), {
+      status: 400,
+    });
+  }
+}
