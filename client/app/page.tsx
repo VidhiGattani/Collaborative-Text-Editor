@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useLayoutEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 
 export default function Home() {
@@ -8,7 +8,7 @@ export default function Home() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null)
   const [docCode, setDocCode] = useState("")
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const token = localStorage.getItem("token")
 
     if (!token) {

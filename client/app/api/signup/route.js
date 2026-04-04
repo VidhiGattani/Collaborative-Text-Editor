@@ -1,5 +1,7 @@
-import { pool } from "@/lib/db";
-import bcrypt from "bcrypt";
+export const runtime = "nodejs";
+
+import { pool } from "../../../lib/db";
+import bcrypt from "bcryptjs";
 
 export async function POST(req) {
   const { email, password } = await req.json();
@@ -15,7 +17,7 @@ export async function POST(req) {
     return new Response(JSON.stringify({ message: "User created" }), {
       status: 200,
     });
-  } catch (err) {
+  } catch {
     return new Response(JSON.stringify({ error: "User already exists" }), {
       status: 400,
     });

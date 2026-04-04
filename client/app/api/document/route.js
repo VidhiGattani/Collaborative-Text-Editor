@@ -1,4 +1,6 @@
-import { pool } from "@/lib/db";
+export const runtime = "nodejs";
+
+import { pool } from "../../../lib/db";
 
 export async function GET(req) {
   try {
@@ -35,6 +37,7 @@ export async function POST(req) {
       `,
       [id, content]
     );
+    
 
     return Response.json({ success: true });
   } catch (error) {

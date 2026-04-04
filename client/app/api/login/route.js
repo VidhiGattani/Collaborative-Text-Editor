@@ -1,4 +1,6 @@
-import { pool } from "@/lib/db"
+export const runtime = "nodejs";
+
+import { pool } from "../../../lib/db"
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
 

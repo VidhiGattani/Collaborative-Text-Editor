@@ -16,7 +16,7 @@ export default function DocPage() {
     if (!token) {
       router.push("/login")
     }
-  }, [])
+  }, [router])
 
   const copyLink = () => {
     const url = `${window.location.origin}/doc/${docId}`

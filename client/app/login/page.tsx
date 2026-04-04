@@ -1,6 +1,6 @@
 ﻿"use client"
 
-import { useEffect, useState } from "react"
+import { useLayoutEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 
 export default function Login() {
@@ -11,7 +11,7 @@ export default function Login() {
 
   const router = useRouter()
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const token = localStorage.getItem("token")
 
     if (token) {
@@ -53,7 +53,7 @@ export default function Login() {
 
       localStorage.setItem("token", data.token)
       router.replace("/")
-    } catch (err) {
+    } catch {
       alert("Something went wrong")
       setLoading(false)
     }
