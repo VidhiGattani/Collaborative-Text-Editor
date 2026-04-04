@@ -1,8 +1,8 @@
 export const runtime = "nodejs";
 
 import { pool } from "../../../lib/db"
-import bcrypt from "bcryptjs"
-import jwt from "jsonwebtoken"
+const bcrypt = require("bcryptjs")
+const jwt = require("jsonwebtoken")
 
 export async function POST(req) {
   try {

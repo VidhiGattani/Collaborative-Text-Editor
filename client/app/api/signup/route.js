@@ -1,7 +1,7 @@
 export const runtime = "nodejs";
 
 import { pool } from "../../../lib/db";
-import bcrypt from "bcryptjs";
+const bcrypt = require("bcryptjs");
 
 export async function POST(req) {
   const { email, password } = await req.json();
