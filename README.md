@@ -5,7 +5,7 @@ A real-time collaborative text editor built with Next.js, React, and WebSocket t
 ![Next.js](https://img.shields.io/badge/Next.js-16.2.2-black?style=flat-square&logo=next.js)
 ![React](https://img.shields.io/badge/React-19.2.4-blue?style=flat-square&logo=react)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Latest-blue?style=flat-square&logo=postgresql)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+
 
 ## Features
 
